@@ -1,0 +1,40 @@
+{
+    "manifest_version": 3,
+    "name": "번개장터 플러스",
+    "version": "1.0.0",
+    "description": "상품 미리보기 시 배송비 가격/배송비 포함 가격 표시 및 광고 차단 기능을 제공합니다.",
+    "icons": {
+        "16": "bj-plus-16.png",
+        "48": "bj-plus-48.png",
+        "128": "bj-plus-128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://m.bunjang.co.kr/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "css": [
+                "style.css"
+            ],
+            "run_at": "document_idle"
+        }
+    ],
+    "host_permissions": [
+        "https://api.bunjang.co.kr/*",
+        "https://m.bunjang.co.kr/*"
+    ],
+    "permissions": [
+        "storage"
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "bj-plus-16.png",
+            "48": "bj-plus-48.png",
+            "128": "bj-plus-128.png"
+        }
+    }
+}

@@ -1,0 +1,92 @@
+.bj-custom-price-container {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 2px;
+  margin-top: 6px;
+  width: 100%; /* 부모 공간을 전부 차지하여 줄바꿈 유도 */
+  order: 10;
+}
+
+.bj-custom-price-text {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px !important;
+  /* padding: 3px 6px; */
+  /* border-radius: 4px; */
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+  white-space: nowrap; /* 글자 깨짐 방지 */
+}
+
+.bj-custom-price-text .bj-price {
+    color: #252020 !important;
+    margin-left: 2px;
+}
+
+/* 개별 라벨 색상 (통합 뱃지 등에서 사용) */
+.gs-label { color: #2D5DA1 !important; }
+.cu-label { color: #7A30A0 !important; }
+
+/* 무료배송*/
+.bj-custom-price-text.free-shipping {
+  color: #10897C;
+}
+
+/* 일반배송 */
+.bj-custom-price-text.normal-shipping {
+  color: #666666; 
+}
+
+/* GS반값 */
+.bj-custom-price-text.gs-shipping {
+  color: #2D5DA1;
+}
+
+/* CU반값 */
+.bj-custom-price-text.cu-shipping {
+  color: #7A30A0;
+}
+
+/* GS/CU 둘 다 가능한 경우 (구분자 색상만 지정) */
+.bj-custom-price-text.gs-cu-shipping {
+  color: black;
+}
+
+/* Fallback (배송비 정보가 없는 경우) */
+.bj-custom-price-text.unknown-shipping {
+  color: #888888;
+}
+
+/* 부모 요소 강제 제어 (텍스트 잘림 방지) */
+.bj-custom-price-container > * {
+  flex-shrink: 0;
+}
+
+/* 광고 카드 블라인드 처리 (레이아웃 무너짐 방지) */
+.bj-ad-blind {
+  position: relative !important;
+  pointer-events: none !important; /* 클릭 방지 */
+  user-select: none;
+}
+
+/* 카드의 패딩/그리드를 유지한 채 내부 영역만 흐리게 덮음 */
+.bj-ad-blind::after {
+  content: "광고 상품";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.85); /* 흰색 반투명 */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #999999;
+  z-index: 100;
+  border-radius: inherit; /* 부모 둥글기 물려받기 */
+}
